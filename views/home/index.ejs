@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>EcoTrack360</title>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="../css/hub.css">
+  <link rel="stylesheet" type="text/css" href="../css/slider.css">
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <link rel="icon" href="../imagekol/logo1.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<div id="contactPopup" style="display: none;position: fixed;top: 62px;right: 6%; background: #fff; color: #141414; border-radius: 12px; padding: 20px; box-shadow: 0 0 15px rgba(0,0,0,0.2); z-index: 9999; max-width: 270px;font-family: 'Poppins', sans-serif;
+">
+  <h3 style="margin-top: 0; font-size: 18px;">📞 Contact Info</h3>
+  <p style="margin: 8px 0;"><strong>Email:</strong> support@ecohub.com</p>
+  <p style="margin: 8px 0;"><strong>Phone:</strong> +91 98765 43210</p>
+  <p style="margin: 8px 0;"><strong>Location:</strong> Kolkata, India</p>
+  <button onclick="document.getElementById('contactPopup').style.display='none';"
+    style="margin-top: 10px; padding: 6px 12px; background: #2193b0; color: white; border: none; border-radius: 6px; cursor: pointer;">
+    Close
+  </button>
+</div>
+<div id="profilePopup" style="display: none;position: fixed;top: 62px;right: 6%; background: #fff; color: #141414; border-radius: 12px; padding: 20px; box-shadow: 0 0 15px rgba(0,0,0,0.2); z-index: 9999; max-width: 270px;font-family: 'Poppins', sans-serif;
+">
+  <h3 style="margin-top: 0; font-size: 18px; font-weight: 700;"> Profile </h3>
+  <p style="margin: 8px 0;font-size: 18px; font-weight: 700;"> settings</p>
+  <p style="margin: 8px 0;font-size: 18px; font-weight: 700;"> privecy & security</p>
+  <a href="/logout" style=" text-decoration: none; color: inherit;"><p style="margin: 8px 0;font-size: 18px; font-weight: 700;">Log Out </p></a>
+</div>
+
+<body>
+  <!-- flash -->
+  <div class="flash-container">
+    <% if ((success && success.length> 0) || (error && error.length > 0)) { %>
+      <div class="flash-message <%= success && success.length ? 'flash-success' : 'flash-error' %>">
+        <%= success && success.length ? success[0] : error[0] %>
+      </div>
+      <% } %>
+  </div>
+  <!-- ------ -->
+  <header>
+    <nav>
+      <ul>
+        <li class="ico">
+          <img src="/imagekol/logo1.jpg" alt="EcoHub Logo" id="logo-img" style="padding-right: 1vw; width: 50px;">
+        </li>
+        <li class="btn" style="padding-left: 44vw;">
+          <button class="button-33" role="button"><a href="/Home">Home</a></button>
+          <button class="button-33" role="button"><a href="/Service">Service</a></button>
+          <button class="button-33" role="button"><a href="/listings">Products</a></button>
+          <button class="button-33" role="button"><a href="/Ourmission">About</a></button>
+          <button class="button-33" id="contactTrigger">Contact</button>
+        </li>
+
+        <li class="log">
+          <% if (user) { %>
+            <button class="button-57" role="button" onclick="document.getElementById('profilePopup').style.display='block';">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+              </svg>
+              </button>
+            <% } else { %>
+              <a href="/signup"><button class="button-57" role="button">
+                  Sign Up
+                </button></a>
+              <% } %>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="slider">
+      <div class="list">
+        <div class="item">
+          <img src="../imagekol/img1.jpeg" alt="">
+        </div>
+        <div class="item">
+          <img src="../imagekol/img2.jpeg" alt="">
+        </div>
+        <div class="item">
+          <img src="../imagekol/img3.jpeg" alt="">
+        </div>
+        <div class="item">
+          <img src="../imagekol/img4.jpeg" alt="">
+        </div>
+        <div class="item">
+          <img src="../imagekol/img5.jpeg" alt="">
+        </div>
+      </div>
+      <!-- for two buttons  -->
+      <div class="buttons">
+        <button id="prev">
+          < </button>
+            <button id="next">></button>
+      </div>
+      <ul class="dots">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </main>
+  <div id="cont" class="content"
+    style="position: relative; border-radius: 1px; padding: 4px; background: linear-gradient(135deg, #09090981, #ffffff, #0000007f); background-size: 400% 400%; animation: borderWave 8s ease infinite;">
+    <div style="border-radius: 10px; background: #ffffff; padding: 20px;">
+      <h1 id="heading" style="margin: 0; color: #000000; display: flex; justify-content: center;">Welcome to Eco-Vision
+      </h1>
+    </div>
+  </div>
+  <div id="cont" class="content"
+    style="position: relative; border-radius: 1px; padding: 4px; background: linear-gradient(135deg, #0909097f, #ffffff, #0000008e); background-size: 400% 400%; animation: borderWave 8s ease infinite;">
+    <div style="border-radius: 10px; background: #ffffff; padding: 20px;">
+      <h1
+        style="font-size: large; font-weight: 200;text-align: center; color: #000000; display: flex; justify-content: center;">
+        Eco-Vision is more than just a platform — it’s a movement toward a cleaner, greener future. Designed with
+        sustainability at its core, Eco-Vision empowers users to make environmentally conscious choices every step of
+        the way. From shopping for eco-friendly products to accessing tools that track your carbon footprint, our
+        platform is here to guide you on your journey toward a more sustainable lifestyle.
+        Through our intuitive e-commerce section, you can explore a handpicked selection of eco-friendly items — all
+        curated with care to reduce environmental impact. Whether it's reusable goods, biodegradable packaging, or
+        sustainable home essentials, every product supports a cleaner planet. But we’re not stopping at shopping.
+        Eco-Vision also helps you take real-world action. Our services assist users in identifying local recycling
+        centers, providing exact locations via an interactive map and offering comprehensive information about each
+        center’s offerings, timings, and guidelines.
+        Want to know how your daily activities impact the environment? Use our smart carbon emission tracking tools to
+        monitor, analyze, and reduce your footprint with ease. We also share tips, suggestions, and personalized
+        insights to help you adapt better habits over time. Eco-Vision promotes a community-driven approach, encouraging
+        individuals and organizations to work together for the common goal of sustainability.
+        Whether you’re looking to contribute to a healthier planet or seeking simple ways to adopt eco-friendly habits,
+        Eco-Vision brings all the tools and resources you need — in one place.
+        Join the mission. Live consciously. Choose Eco-Vision.
+      </h1>
+      <img src="../imagekol/Serviceshow.jpeg" alt="services"
+        style="display: block; margin: 40px auto; max-width: 100%; height: 27em;width: auto; border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);"">
+      <h1  style=" font-size: 4em; font-weight: 700;text-align: center; color: #0f5130dc; display: flex;
+        justify-content: center;">
+      Pourpose Of Making This
+      </h1>
+      <div id="ecoHeadingsContainer">
+
+        <h1 class="eco-heading"
+          style="text-align: center; opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; font-size: 26px; font-weight: 600; color: #000000; line-height: 1.6;">
+          <span style="filter: drop-shadow(0 0 5px #00e676); font-weight: bold;">🌿</span> The primary purpose of
+          creating Eco-Vision is to inspire and empower individuals to adopt sustainable lifestyles.
+        </h1>
+
+        <h1 class="eco-heading"
+          style="text-align: center; opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; font-size: 26px; font-weight: 600; color: #000000; line-height: 1.6;">
+          <span style="filter: drop-shadow(0 0 5px #00e676); font-weight: bold;">🛒</span> Eco-Vision features an
+          e-commerce section for eco-friendly products that reduce environmental harm.
+        </h1>
+
+        <h1 class="eco-heading"
+          style="text-align: center; opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; font-size: 26px; font-weight: 600; color: #000000; line-height: 1.6;">
+          <span style="filter: drop-shadow(0 0 5px #00e676); font-weight: bold;">📍</span> Users can find nearby
+          recycling centers with detailed maps and information on timings and accepted materials.
+        </h1>
+
+        <h1 class="eco-heading"
+          style="text-align: center; opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; font-size: 26px; font-weight: 600; color: #000000; line-height: 1.6;">
+          <span style="filter: drop-shadow(0 0 5px #00e676); font-weight: bold;">📊</span> Our carbon emission tracking
+          tool helps you monitor your environmental impact and reduce your footprint.
+        </h1>
+
+        <h1 class="eco-heading"
+          style="text-align: center; opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; font-size: 26px; font-weight: 600; color: #000000; line-height: 1.6;">
+          <span style="filter: drop-shadow(0 0 5px #00e676); font-weight: bold;">💡</span> We educate and encourage
+          users to take daily actions that contribute to global sustainability goals.
+        </h1>
+
+        <h1 class="eco-heading"
+          style="text-align: center; opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; font-size: 26px; font-weight: 600; color: #000000; line-height: 1.6;">
+          <span style="filter: drop-shadow(0 0 5px #00e676); font-weight: bold;">🌱</span> Eco-Vision promotes
+          community-based services for collaborative environmental improvement.
+        </h1>
+
+        <h1 class="eco-heading"
+          style="text-align: center; opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; font-size: 26px; font-weight: 600; color: #000000; line-height: 1.6;">
+          <span style="filter: drop-shadow(0 0 5px #00e676); font-weight: bold;">🔄</span> We aim to build a circular
+          economy by making recycling and responsible consumption more accessible.
+        </h1>
+
+        <h1 class="eco-heading"
+          style="text-align: center; opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; font-size: 26px; font-weight: 600; color: #000000; line-height: 1.6;">
+          <span style="filter: drop-shadow(0 0 5px #00e676); font-weight: bold;">🚀</span> Join the Eco-Vision movement
+          and take your first step toward a greener, cleaner future!
+        </h1>
+
+        <script>
+          const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach((entry, index) => {
+              if (entry.isIntersecting) {
+                setTimeout(() => {
+                  entry.target.style.opacity = "1";
+                  entry.target.style.transform = "translateY(0)";
+                }, index * 150);
+                obs.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.3 });
+
+          document.querySelectorAll('.eco-heading').forEach((heading) => {
+            observer.observe(heading);
+          });
+        </script>
+      </div>
+
+    </div>
+  </div>
+  <div id="cont" class="content">
+    <h1 id="heading" style="color: rgba(255, 7, 7, 0.69);">Developers Response/Review</h1>
+  </div>
+  <div class="container-111">
+    <!-- top-3 users Card 1 -->
+    <div class="caerd-99">
+      <div class="header-44">
+        <div class="img-008" style="background-image:url(../imagekol/Arkinimg.jpeg); width: 60px;"></div>
+        <div class="text-wrap-721">
+          <div class="line-991"
+            style="display: inline-block; background-color: #eee; font-size: larger; padding: 4px 8px; border-radius: 2px;">
+            Arkan Sinha</div>
+          <div class="line-992"
+            style="display: inline-block; background-color: #eee; font-size: small; padding: 4px 8px; margin-top: 4px; border-radius: 2px;">
+            FrotEnd-BackEnd(UI/UX)</div>
+        </div>
+      </div>
+      <div class="content-347">
+        “Dark mode toggle’s working smoother now, feels better on scroll. I tweaked the hover effect on buttons a bit —
+        nothing major, just cleaner. Mobile layout had some spacing issues, sorted those out. Cleaned up some CSS too,
+        it was getting messy. If anything’s off visually, try a hard refresh — might be caching stuff.”
+        “Tried a different layout for the cards, looks a bit more balanced. Switched to flex where grid felt overkill.
+        Fonts weren’t matching well before — used a simpler combo. Might add small animations later if it fits. Also, if
+        a theme toggle seems useful, I’ll put that in.”
+      </div>
+    </div>
+
+    <!-- top-3 users Card 2 -->
+    <div class="caerd-99">
+      <div class="header-44">
+        <div class="img-008" style="background-image: url(../imagekol/Sandipimg.jpeg);"></div>
+        <div class="text-wrap-721">
+          <div class="line-991"
+            style="display: inline-block; background-color: #eee; font-size: larger; padding: 4px 8px; border-radius: 2px;">
+            Sandip Biswas</div>
+          <div class="line-992"
+            style="display: inline-block; background-color: #eee; font-size: small; padding: 4px 8px; margin-top: 4px; border-radius: 2px;">
+            BackEnd Expart-DataBase/API</div>
+        </div>
+      </div>
+      <div class="content-347">
+        “Optimized a few queries — response time’s looking tighter now.
+        Refactored the API responses to be a bit more consistent.
+        Cleaned up the schema — was getting a little too cluttered.
+        Also handled some edge cases we were missing before.
+        Testing looks solid, but if anything breaks, ping me.
+
+        Thinking of implementing rate limiting soon.
+        Might switch to a more efficient caching approach.
+        Set up a fallback for one of the endpoints too.
+        Also added a couple of quick logs for debugging.
+        Let me know if I should expose any extra data fields.”
+      </div>
+    </div>
+
+    <!--top-3 users Card 3 -->
+    <div class="caerd-99">
+      <div class="header-44">
+        <div class="img-008" style="background-image: url(../imagekol/Arkoimg.jpeg); "></div>
+        <div class="text-wrap-721">
+          <div class="line-991"
+            style="display: inline-block; background-color: #eee; font-size: larger; padding: 4px 8px; border-radius: 2px;">
+            Arko Bag</div>
+          <div class="line-992"
+            style="display: inline-block; background-color: #eee; font-size: small; padding: 4px 8px; margin-top: 4px; border-radius: 2px;">
+            FrotEnd-BackEnd-Deploy-Lead</div>
+        </div>
+      </div>
+      <div class="content-347">
+        “Deployment script was hanging on one step — fixed that.
+        Cleaned up the build process to be a bit faster.
+        Moved some config out of hardcoded areas.
+        Did a dry run on staging — all looks good so far.
+        Added a fallback for missing assets just in case.
+
+        Monitoring is set up now — should catch basic issues.
+        Tweaked some environment vars to reduce risk.
+        Working on automating rollback steps.
+        Also created a quick deployment checklist.
+        Might set up version tagging if we grow more.”
+      </div>
+    </div>
+    <!--top-3 users Card 3 -->
+    <div class="caerd-99">
+      <div class="header-44">
+        <div class="img-008" style="background-image: url(../imagekol/Kollolimg.jpeg);"></div>
+        <div class="text-wrap-721">
+          <div class="line-991"
+            style="display: inline-block; background-color: #eee; font-size: larger; padding: 4px 8px; border-radius: 2px;">
+            Kollol Mohanta</div>
+          <div class="line-992"
+            style="display: inline-block; background-color: #eee; font-size: small; padding: 4px 8px; margin-top: 4px; border-radius: 2px;">
+            DevOps-Security & Debuging</div>
+        </div>
+      </div>
+      <div class="content-347">
+        “Patched a few small vulnerabilities from the last scan.
+        Set up basic security headers for the server responses.
+        Also, added stricter CORS rules just to be safe.
+        Cleaned up the logging format — easier to read now.
+        Monitoring memory usage on the server closely.
+
+        Added rate limiting to reduce brute force risk.
+        Started mapping out a basic incident response doc.
+        Might move error logs to a centralized system soon.
+        Found a redundant auth check — removed it.
+        Hit me up if you spot anything suspicious.”
+      </div>
+    </div>
+  </div>
+
+
+  <div style="text-align: center; margin: 40px auto; padding: 20px; max-width: 600px;">
+    <h2
+      style="font-family: 'Arial', sans-serif; font-size: 28px; font-weight: 600; border-bottom: 2px solid #4a4a4a; display: inline-block; margin-bottom: 20px; ">
+      We want <span style="font-weight: 800; color: #1e88e5;">YOUR</span> Review
+    </h2>
+
+    <div id="starBox"
+      style="border: 2px solid #4a4a4a; border-radius: 12px; display: inline-flex; padding: 15px 25px; gap: 12px; margin-top: 20px;">
+      <span onclick="rate(1)" id="s1"
+        style="user-select: none;caret-color: transparent;font-size: 28px; color: gray; cursor: pointer; transition: transform 0.3s; ">&#9733;</span>
+      <span onclick="rate(2)" id="s2"
+        style="user-select: none;caret-color: transparent;font-size: 28px; color: gray; cursor: pointer; transition: transform 0.3s;">&#9733;</span>
+      <span onclick="rate(3)" id="s3"
+        style="user-select: none;caret-color: transparent;font-size: 28px; color: gray; cursor: pointer; transition: transform 0.3s;">&#9733;</span>
+      <span onclick="rate(4)" id="s4"
+        style="user-select: none;caret-color: transparent;font-size: 28px; color: gray; cursor: pointer; transition: transform 0.3s;">&#9733;</span>
+      <span onclick="rate(5)" id="s5"
+        style="user-select: none;caret-color: transparent;font-size: 28px; color: gray; cursor: pointer; transition: transform 0.3s;">&#9733;</span>
+    </div>
+
+    <p id="thankYou" style="display: none; font-family: Arial; font-size: 18px; color: green; margin-top: 20px;">
+      ⭐ Thank you for your review!
+    </p>
+
+    <script>
+      function rate(n) {
+        for (let i = 1; i <= 5; i++) {
+          const star = document.getElementById("s" + i);
+          if (i <= n) {
+            star.style.color = "#ff1d50";
+            star.style.transform = "scale(1.3)";
+          } else {
+            star.style.color = "gray";
+            star.style.transform = "scale(1)";
+          }
+        }
+        setTimeout(() => {
+          for (let i = 1; i <= 5; i++) {
+            document.getElementById("s" + i).style.transform = "scale(1)";
+          }
+        }, 300);
+
+        document.getElementById("thankYou").style.display = "block";
+      }
+    </script>
+  </div> 
+
+  <hr>
+
+  <div class="comment-container">
+    <h2> Enter your Comment </h2>
+    <textarea id="commentInput" placeholder="Write your comment here..."></textarea>
+    <button onclick="addComment()">Post Comment</button>
+
+    <div class="comment-list" id="commentList"></div>
+  </div>
+
+  <script>
+    function addComment() {
+      const input = document.getElementById('commentInput');
+      const commentText = input.value.trim();
+      if (commentText === "") return;
+
+      const commentBox = document.createElement('div');
+      commentBox.className = 'comment';
+      commentBox.textContent = commentText;
+
+      document.getElementById('commentList').prepend(commentBox);
+      input.value = "";
+    }
+  </script>
+  <br><br>
+
+  <div class="text">
+    <ul>
+      <li>
+        <h3>About Eco-Vision</h3>
+      </li>
+      <li>
+        <h3>Support & Resources</h3>
+      </li>
+      <li>
+        <h3>Eco-Friendly Products</h3>
+      </li>
+      <li>
+        <h3>Follow Us</h3>
+      </li>
+      <li>
+        <a href="/Ourmission" style="color: #eee;">Our Mission</a>
+        <a href="/Sustainability_Goals" style="color: #eee;">Sustainability Goals</a>
+        <a href="/Green_Initiatives" style="color: #eee;">Green Initiatives</a>
+      </li>
+      <li>
+        <a href="/Help_Center" style="color: #eee;">Help Center</a>
+        <a href="/Shipping_Information" style="color: #eee;">Shipping Information</a>
+        <a href="/Return_Policy" style="color: #eee;">Return Policy</a>
+        <a href="/Payment_Methods" style="color: #eee;">Payment Methods</a>
+      </li>
+      <li>
+        <a href="/Organic_Clothing" style="color: #eee;">Organic Clothing</a>
+        <a href="/Reusable_Items" style="color: #eee;">Reusable Items</a>
+        <a href="/Eco_Gadget" style="color: #eee;">Eco-Gadgets</a>
+        <a href="/Zero_Waste_Products" style="color: #eee;">Zero-Waste Products</a>
+      </li>
+      <li>
+        <img src="../imagekol/facebook_5968764.png"  alt="facebook" style="cursor: pointer;" onclick="window.location.href='https://facebook.com'">
+<img src="../imagekol/twitter-logo-2429 (2).png" alt="twitter" style="cursor: pointer;" onclick="window.location.href='https://www.instagram.com/j/AbY8SGB3bFYPjJhs/https://www.instagram.com/j/AbY8SGB3bFYPjJhs/'">
+<img src="../imagekol/youtube.png" alt="youtube" style="cursor: pointer;" onclick="window.location.href='https://youtube.com/@alphagamerlive5972?si=BLtmVDHC9tr13GFS'">
+<img src="../imagekol/linkedin.png" alt="linkedin" style="cursor: pointer;" onclick="window.location.href='https://linkedin.com'">
+      </li>
+    </ul>
+  </div>
+  <p id="endp">&copy; 2025 Eco-Vision | Designed with sustainability in mind</p>
+  <script src="../js/Slider.js"></script>
+  <script src="../js/sc34.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+  <script> window.chtlConfig = { chatbotId: "6294176334" } </script>
+  <script async data-id="6294176334" id="chatling-embed-script" type="text/javascript"
+    src="https://chatling.ai/js/embed.js"></script>
+</body>
+
+</html>

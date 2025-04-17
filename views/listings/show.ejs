@@ -1,0 +1,42 @@
+<% layout("/layouts/boilerplate.ejs") %>
+ 
+<div class="row mt-3">
+    <div class="col-8 offset-3">
+    <h3>Listing Details  </h3>
+</div>
+
+    <div class="card col-6 offset-3 show-card">
+        <div class="card" style="width: 18rem;">
+            <img src="<%= showListing.image %>" class="card-img-top show-image" alt="Listing_image">
+            <div class="card-body">
+              <p class="card-text">
+                <b><%= showListing.title %></b><br>
+                <%= showListing.Capacity %><br>
+                <%= showListing.Material %><br>
+                &#8377; <%= showListing.Price.toLocaleString('en-IN') %>
+              </p>
+            </div>
+          </div>
+    </div> 
+
+
+<div class="btns mb-3">
+    <a href="/listings/<%= showListing._id %>/edit" class="btn btn-dark  col-1 offset-3 edit-btn">Edit</a>
+
+    <form method="POST" action="/listings/<%= showListing._id %>?_method=DELETE">
+        <button class="btn btn-dark offset-5">Delete</button>
+    </form>
+</div>
+</div>
+
+
+
+
+
+<!-- <ul>
+    <li><%= showListing.title %></li>
+    <li><%= showListing.image %></li>
+    <li><%= showListing.Capacity %></li>
+    <li><%= showListing.Material %></li>
+    <li>&#8377; <%= showListing.Price.toLocaleString('en-IN') %></li>
+</ul> -->
