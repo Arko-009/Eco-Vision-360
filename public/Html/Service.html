@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eco Actions | EcoHub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 0;
+      font-size: 36px;
+      font-weight: 700;
+      color: #6dd5ed;
+      text-shadow: 0px 0px 10px #6dd5ed;
+    }
+
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      padding: 40px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .eco-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 30px;
+      width: 270px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+
+    .eco-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 25px rgba(109, 213, 237, 0.4);
+    }
+
+    .eco-card h3 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+
+    .eco-card p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #d6f4ff;
+    }
+
+    .eco-card button {
+      margin-top: 20px;
+      padding: 12px 30px;
+      font-size: 16px;
+      font-weight: 600;
+      background: linear-gradient(135deg, #6dd5ed, #2193b0);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .eco-card button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(109, 213, 237, 0.6);
+    }
+  </style>
+</head>
+<body>
+
+  <header>Our services</header>
+
+  <div class="card-grid">
+    <div class="eco-card">
+      <h3>Track Carbon Footprint</h3>
+      <p>Monitor and reduce your emissions using our eco calculator tools.</p>
+      <a href="/Carbon-Calculator"><button>Use</button></a>
+    </div>
+
+    <div class="eco-card">
+      <h3>Recycling Centers </h3>
+      <p>Discover nearby centers with maps and details for proper disposal.</p>
+      <a href="/Recycling"><button>Read</button></a>
+      
+    </div>
+
+    <div class="eco-card">
+      <h3>Find on Map</h3>
+      <p>Follow Map ; and reach to center</p>
+      <a href="/Map"><button>Locate Now</button></a>
+    </div>
+
+    <div class="eco-card">
+      <h3>Generate Tips</h3>
+      <p>Follow this tips to reduce you carbon emmisions</p>
+      <a href="/Tips"><button>Tips</button></a>
+    </div>
+  </div>
+
+</body>
+</html>
