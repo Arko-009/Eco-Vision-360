@@ -26,7 +26,7 @@ main().then((res)=>{
     console.log(err)
 });
 async function main() {
-  await mongoose.connect('mongodb+srv://arkobag712409:V1uV3W9Clwekk8Ax@cluster0.8lvaz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
+  await mongoose.connect(process.env.MONGO_URI);
 }
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
