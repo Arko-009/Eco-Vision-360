@@ -177,6 +177,9 @@ app.get("/Carbon-Calculator", (req, res) => {
 app.get("/Service", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/html/Service.html"));
 })
+app.get('/', (req, res) => {
+  res.redirect('/Home');
+});
 app.listen(port, ()=>{
     console.log("Server is lisening on http://localhost:3000/Home")
 });
