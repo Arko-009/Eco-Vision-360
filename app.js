@@ -126,6 +126,55 @@ app.delete("/listings/:id", async(req, res)=>{
     await Listing.findByIdAndDelete(id);
     res.redirect("/listings");
 });
+
+
+
+ app.get("/jsonData/ourMission", (req, res)=>{
+    console.log("success")
+    res.render("static/ourMission.ejs")
+ })
+
+ app.get("/jsonData/sustainabilityGoals", (req, res)=>{
+    res.render("static/sustainabilityGoals.ejs")
+ })
+
+ app.get("/jsonData/greenInitiatives", (req, res)=>{
+    res.render("static/greenInitiatives.ejs")
+ })
+
+ app.get("/jsonData/helpCenter", (req, res)=>{
+    res.render("static/helpCenter.ejs")
+ })
+
+ app.get("/jsonData/shippingInformation", (req, res)=>{
+    res.render("static/shippingInformation.ejs")
+ })
+
+ app.get("/jsonData/returnPolicy", (req, res)=>{
+    res.render("static/returnPolicy.ejs")
+ })
+
+app.get("/jsonData/paymentMethods", (req, res)=>{
+    res.render("static/paymentMethods.ejs")
+ })
+
+ app.get("/jsonData/organicClothing", (req, res)=>{
+    res.render("static/organicClothing.ejs")
+ })
+
+ app.get("/jsonData/reusableItems", (req, res)=>{
+    res.render("static/reusableItems.ejs")
+ })
+
+ app.get("/jsonData/ecoGadget", (req, res)=>{
+    res.render("static/ecoGadget.ejs")
+ })
+
+ app.get("/jsonData/zeroWasteProducts", (req, res)=>{
+    res.render("static/zeroWasteProducts.ejs")
+ })
+
+
 app.get("/Home", (req, res) => {
     res.render("home/index.ejs", { user: req.user });
 });
