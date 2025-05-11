@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Recycling Center Map</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-size: cover;
+            background-image: url(/imagekol/map\ background.jpeg);
+            filter: opacity(100%);
+            background-repeat: no-repeat;
+        }
+
+        #map {
+            z-index: 100;
+            border-radius: 20px;
+            border: 2px solid black;
+            width: 70vw;
+            height: 600px;
+            margin: 50px auto;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-top: 20px;
+        }
+
+        .more {
+            color: white;
+            background-color: #4e5715;
+            border-radius: 7px;
+            border: 2px solid red;
+            width: 120px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .Me {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Styles for the cards */
+        .cards-container {
+            display: none;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .card {
+            width: 200px;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #333;
+            text-align: center;
+            margin: 10px;
+            background-color: white;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.25);
+        }
+
+        .card h3 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card ul li {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .card button:hover {
+            background: linear-gradient(135deg, #2E7D32, #1B5E20);
+            transform: scale(1.05);
+        }
+
+        .location-btn {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-top: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .location-btn:hover {
+            background-color: #45a049;
+        }
+
+        .viewOnMapButton {
+            background: linear-gradient(135deg, #0b260c, #2E7D32);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .viewOnMapButton:hover {
+            background: linear-gradient(135deg, #2E7D32, #1B5E20);
+            transform: scale(1.05);
+        }
+
+        .footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .footer-content {
+            color: whitesmoke;
+            font-size: 18px;
+            margin: 5px 0;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+    <link rel="icon" href="../imagekol/logo-color.svg">
+</head>
+
+<body>
+
+    <h1 style="
+  font-size: 56px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  background: linear-gradient(90deg, #4caf50, #8bc34a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  padding: 20px;
+">
+        Major Important Centers in INDIA
+    </h1>
+
+    <div class="Me">
+        <button class="more" id="toggleButton">
+            -- More --
+        </button>
+    </div>
+
+    <div class="cards-container" id="cardsContainer">
+        <div class="card">
+            <h3>Environmental Hotspots</h3>
+            <ul>
+                <li>Forests & Biodiversity Zones (E.g., Western Ghats, Sundarbans, Himalayas)</li>
+                <li>National Parks & Wildlife Sanctuaries</li>
+                <li>Biosphere Reserves (E.g., Nilgiri, Nanda Devi, Gulf of Mannar)</li>
+                <li>Mangrove Ecosystems (E.g., Sundarbans, Pichavaram)</li>
+            </ul>
+            <button id="envHotspotBtn" class="viewOnMapButton">View on Map</button>
+        </div>
+
+        <div class="card">
+            <h3>Pollution & Climate Impact Areas</h3>
+            <ul>
+                <li>Air Pollution Hotspots (Delhi, Kanpur, Varanasi)</li>
+                <li>Water Pollution Affected Rivers (Ganga, Yamuna, Godavari)</li>
+                <li>Industrial Pollution Zones (Chhattisgarh, Gujarat, Maharashtra)</li>
+                <li>Deforestation Zones (Amazon logging sites, mining-affected areas)</li>
+            </ul>
+            <button id="pollutionImpactBtn" class="viewOnMapButton">View on Map</button>
+        </div>
+        <div class="card">
+            <h3>Renewable Energy Projects</h3>
+            <ul>
+                <li>Solar Energy Farms (Bhadla Solar Park, Rewa Ultra Mega Solar Park)</li>
+                <li>Wind Energy Projects (Tamil Nadu, Gujarat)</li>
+                <li>Hydropower Stations (Bhakra Nangal, Tehri Dam)</li>
+            </ul>
+            <button id="renewableEnergyBtn" class="viewOnMapButton">View on Map</button>
+        </div>
+        <div class="card">
+            <h3>Sustainable Development Initiatives</h3>
+            <ul>
+                <li>Eco-Friendly Cities (Smart Cities, Green Urban Zones)</li>
+                <li>Plastic-Free Zones</li>
+                <li>Organic Farming Areas</li>
+            </ul>
+            <button id="sustainableDevBtn" class="viewOnMapButton">View on Map</button>
+        </div>
+        <div class="card">
+            <h3>Recycling Center</h3>
+            <p>Main Recycling Center</p>
+            <button id="recycling-Btn" class="viewOnMapButton">View on Map</button>
+            <p>All Other Center</p>
+            <button id="all-Recycling-Btn" class="viewOnMapButton">View on Map</button>
+        </div>
+    </div>
+
+    <div id="map"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <script src="../js/recycling-centers.js"></script>
+    <script>
+        // Initialize the map
+var map1 = L.map('map').setView([20.5937, 78.9629], 4);
+
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ',
+    maxZoom: 18
+}).addTo(map1);
+
+// Boundary layer for zoom effect
+var boundaryLayer = L.tileLayer.wms("https://ows.terrestris.de/osm/service?", {
+    layers: 'OSM-Overlay-WMS',
+    format: 'image/png',
+    transparent: true,
+    opacity: 0
+}).addTo(map1);
+
+map1.on('zoomend', function () {
+    var zoomLevel = map1.getZoom();
+    boundaryLayer.setOpacity(zoomLevel >= 7 ? 1 : 0);
+});
+
+// Store all markers
+var markers = [];
+
+// Function to remove all markers
+function clearAllMarkers() {
+    markers.forEach(marker => map1.removeLayer(marker));
+    markers = [];
+}
+// Function to add markers dynamically
+function addMarkers(locations) {
+    clearAllMarkers();
+    locations.forEach(location => {
+        var marker = L.marker(location.coordinates).addTo(map1)
+            .bindPopup(`<b>${location.name}</b><br>${location.description}`);
+        markers.push(marker);
+    });
+}
+
+var environmentalHotspots = [
+    { name: "Sundarbans", coordinates: [21.9497, 89.1833], description: "Protected Mangrove Ecosystem" },
+    { name: "Western Ghats", coordinates: [10.0, 77.0], description: "UNESCO Biodiversity Hotspot" },
+    { name: "Himalayas", coordinates: [30.0, 80.0], description: "High-altitude Ecosystem" },
+    { name: "Nilgiri", coordinates: [11.5, 76.6], description: "Biosphere Reserve" },
+    { name: "Nanda Devi", coordinates: [30.4, 79.9], description: "National Park & Biosphere" },
+    { name: "Gulf of Mannar", coordinates: [9.2, 79.3], description: "Marine Biosphere Reserve" },
+    { name: "Pichavaram", coordinates: [11.4, 79.8], description: "Mangrove Forest" }
+];
+
+// Data for Pollution & Climate Impact Areas
+var pollutionImpactAreas = [
+    { name: "Delhi", coordinates: [28.7041, 77.1025], description: "High Air Pollution Levels" },
+    { name: "Kanpur", coordinates: [26.4499, 80.3319], description: "Severe Industrial Pollution" },
+    { name: "Varanasi", coordinates: [25.3176, 82.9739], description: "High Particulate Matter Levels" },
+    { name: "Ganga River", coordinates: [25.2820, 83.0104], description: "Water Pollution Hotspot" },
+    { name: "Yamuna River", coordinates: [28.5355, 77.3910], description: "Industrial Waste Dumping" },
+    { name: "Chhattisgarh", coordinates: [21.2787, 81.8661], description: "Mining and Industrial Pollution" },
+    { name: "Gujarat", coordinates: [22.2587, 71.1924], description: "Chemical Industrial Waste" },
+    { name: "Maharashtra", coordinates: [19.7515, 75.7139], description: "Air and Water Pollution" }
+];
+
+// Data for Renewable Energy Projects
+var renewableEnergyProjects = [
+    { name: "Bhadla Solar Park", coordinates: [27.5171, 71.8655], description: "One of the Largest Solar Parks" },
+    { name: "Rewa Ultra Mega Solar Park", coordinates: [24.5270, 81.2924], description: "Large-scale Solar Project" },
+    { name: "Wind Energy (Tamil Nadu)", coordinates: [10.7905, 78.7047], description: "Major Wind Power Hub" },
+    { name: "Wind Energy (Gujarat)", coordinates: [22.2587, 71.1924], description: "Growing Wind Energy Infrastructure" },
+    { name: "Bhakra Nangal", coordinates: [31.4167, 76.4333], description: "Major Hydropower Dam" },
+    { name: "Tehri Dam", coordinates: [30.3801, 78.4804], description: "Large Hydroelectric Project" }
+];
+
+// Data for Sustainable Development Initiatives
+var sustainableDevelopmentInitiatives = [
+    { name: "Smart City Initiative (Pune)", coordinates: [18.5204, 73.8567], description: "Sustainable Urban Development" },
+    { name: "Plastic-Free Zones (Sikkim)", coordinates: [27.5324, 88.5122], description: "First State to Ban Plastic" },
+    { name: "Organic Farming (Sikkim)", coordinates: [27.3389, 88.6065], description: "India's First Fully Organic State" }
+];
+
+// Data for Main Recycling Centers
+var recyclingCentersMain = [
+    { name: "Recycling Center 1", coordinates: [28.7041, 77.1025], description: "Recycling Hub in Delhi" },
+    { name: "Recycling Center 2", coordinates: [19.0760, 72.8777], description: "Mumbai Recycling Facility" },
+    { name: "Recycling Center 3", coordinates: [13.0827, 80.2707], description: "Chennai Waste Management" },
+    { name: "Recycling Center 4", coordinates: [22.5726, 88.3639], description: "Kolkata E-Waste Center" },
+    { name: "Recycling Center 5", coordinates: [12.9716, 77.5946], description: "Bangalore Sustainable Recycling" }
+];
+document.getElementById("toggleButton").addEventListener("click", function () {
+    var cards = document.getElementById("cardsContainer");
+    if (cards.style.display === "flex") {
+        cards.style.display = "none";
+        this.textContent = "-- More --";
+    } else {
+        cards.style.display = "flex";
+        this.textContent = "-- Minimize --";
+    }
+});
+document.getElementById("envHotspotBtn").addEventListener("click", function () {
+    addMarkers(environmentalHotspots);
+});
+document.getElementById("pollutionImpactBtn").addEventListener("click", function () {
+    addMarkers(pollutionImpactAreas);
+});
+document.getElementById("renewableEnergyBtn").addEventListener("click", function () {
+    addMarkers(renewableEnergyProjects);
+});
+document.getElementById("sustainableDevBtn").addEventListener("click", function () {
+    addMarkers(sustainableDevelopmentInitiatives);
+});
+document.getElementById("recycling-Btn").addEventListener("click", function () {
+    addMarkers(recyclingCentersMain); 
+});
+document.getElementById("all-Recycling-Btn").addEventListener("click", function () {
+    addMarkers(recyclingCenters); 
+});
+    </script>
+</body>
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2025 ECO-VISION. All rights reserved.</p>
+        <p>Designed with ❤️ by GROUP F</p>
+    </div>
+</footer>
+
+</html>
