@@ -134,46 +134,65 @@ app.delete("/listings/:id", async(req, res)=>{
     res.render("static/ourMission.ejs")
  })
 
- app.get("/listings/sustainabilityGoals", (req, res)=>{
+ app.get("/sustainabilityGoals", (req, res)=>{
     res.render("static/sustainabilityGoals.ejs")
  })
 
- app.get("/listings/greenInitiatives", (req, res)=>{
+ app.get("/greenInitiatives", (req, res)=>{
     res.render("static/greenInitiatives.ejs")
  })
 
- app.get("/listings/helpCenter", (req, res)=>{
+ app.get("/helpCenter", (req, res)=>{
     res.render("static/helpCenter.ejs")
  })
 
- app.get("/listings/shippingInformation", (req, res)=>{
+ app.get("/shippingInformation", (req, res)=>{
     res.render("static/shippingInformation.ejs")
  })
 
- app.get("/listings/returnPolicy", (req, res)=>{
+ app.get("/returnPolicy", (req, res)=>{
     res.render("static/returnPolicy.ejs")
  })
 
-app.get("/listings/paymentMethods", (req, res)=>{
+app.get("/paymentMethods", (req, res)=>{
     res.render("static/paymentMethods.ejs")
  })
 
- app.get("/listings/organicClothing", (req, res)=>{
+ app.get("/organicClothing", (req, res)=>{
     res.render("static/organicClothing.ejs")
  })
 
- app.get("/listings/reusableItems", (req, res)=>{
+ app.get("/reusableItems", (req, res)=>{
     res.render("static/reusableItems.ejs")
  })
 
- app.get("/listings/ecoGadget", (req, res)=>{
+ app.get("/ecoGadget", (req, res)=>{
     res.render("static/ecoGadget.ejs")
  })
 
- app.get("/listings/zeroWasteProducts", (req, res)=>{
+ app.get("/zeroWasteProducts", (req, res)=>{
     res.render("static/zeroWasteProducts.ejs")
  })
 
+ app.get("/carbonCalculator", (req, res)=>{
+    res.render("static/carbonCalculator.ejs")
+ })
+
+ app.get("/tips", (req, res)=>{
+    res.render("static/tips.ejs")
+ })
+
+  app.get("/service", (req, res)=>{
+    res.render("static/service.ejs")
+ })
+
+  app.get("/map", (req, res)=>{
+    res.render("static/map.ejs")
+ })
+
+  app.get("/recycling", (req, res)=>{
+    res.render("static/recycling.ejs")
+ })
 
 app.get("/Home", (req, res) => {
     res.render("home/index.ejs", { user: req.user });
