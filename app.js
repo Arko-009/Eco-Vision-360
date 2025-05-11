@@ -134,7 +134,7 @@ app.delete("/listings/:id", async(req, res)=>{
     res.render("static/ourMission.ejs")
  })
 
- app.get("/SustainabilityGoals", (req, res)=>{
+ app.get("/sustainabilityGoals", (req, res)=>{
     res.render("static/sustainabilityGoals.ejs")
  })
 
