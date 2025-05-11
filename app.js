@@ -129,48 +129,48 @@ app.delete("/listings/:id", async(req, res)=>{
 
 
 
- app.get("/jsonData/ourMission", (req, res)=>{
+ app.get("/ourMission", (req, res)=>{
     console.log("success")
     res.render("static/ourMission.ejs")
  })
 
- app.get("/jsonData/sustainabilityGoals", (req, res)=>{
+ app.get("/listings/sustainabilityGoals", (req, res)=>{
     res.render("static/sustainabilityGoals.ejs")
  })
 
- app.get("/jsonData/greenInitiatives", (req, res)=>{
+ app.get("/listings/greenInitiatives", (req, res)=>{
     res.render("static/greenInitiatives.ejs")
  })
 
- app.get("/jsonData/helpCenter", (req, res)=>{
+ app.get("/listings/helpCenter", (req, res)=>{
     res.render("static/helpCenter.ejs")
  })
 
- app.get("/jsonData/shippingInformation", (req, res)=>{
+ app.get("/listings/shippingInformation", (req, res)=>{
     res.render("static/shippingInformation.ejs")
  })
 
- app.get("/jsonData/returnPolicy", (req, res)=>{
+ app.get("/listings/returnPolicy", (req, res)=>{
     res.render("static/returnPolicy.ejs")
  })
 
-app.get("/jsonData/paymentMethods", (req, res)=>{
+app.get("/listings/paymentMethods", (req, res)=>{
     res.render("static/paymentMethods.ejs")
  })
 
- app.get("/jsonData/organicClothing", (req, res)=>{
+ app.get("/listings/organicClothing", (req, res)=>{
     res.render("static/organicClothing.ejs")
  })
 
- app.get("/jsonData/reusableItems", (req, res)=>{
+ app.get("/listings/reusableItems", (req, res)=>{
     res.render("static/reusableItems.ejs")
  })
 
- app.get("/jsonData/ecoGadget", (req, res)=>{
+ app.get("/listings/ecoGadget", (req, res)=>{
     res.render("static/ecoGadget.ejs")
  })
 
- app.get("/jsonData/zeroWasteProducts", (req, res)=>{
+ app.get("/listings/zeroWasteProducts", (req, res)=>{
     res.render("static/zeroWasteProducts.ejs")
  })
 
