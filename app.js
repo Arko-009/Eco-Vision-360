@@ -178,54 +178,7 @@ app.get("/jsonData/paymentMethods", (req, res)=>{
 app.get("/Home", (req, res) => {
     res.render("home/index.ejs", { user: req.user });
 });
-app.get("/Organic_Clothing", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/html/Organic_Clothing.html"));
-})
-app.get("/Reusable_Items", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/html/Reusable_Items.html"));
-})
-app.get("/Eco_Gadget", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/html/Eco_Gadget.html"));
-})
-app.get("/Zero_Waste_Products", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/html/Zero_Waste_Products.html"));
-})
-app.get("/OurMission", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/html/OurMission.html"));
-})
-app.get("/Sustainability_Goals", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/html/Sustainability_Goals.html"));
-})
-app.get("/Green_Initiatives", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/html/Green_Initiatives.html"));
-})
-app.get("/Help_Center", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/html/Help_Center.html"));
-})
-app.get("/Shipping_Information", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/html/Shipping_Information.html"));
-})
-app.get("/Return_Policy", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/html/Return_Policy.html"));
-})
-app.get("/Payment_Methods", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/html/Payment_Methods.html"));
-})
-app.get("/Map", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/html/Map.html"));
-})
-app.get("/Recycling", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/html/Recycling.html"));
-})
-app.get("/Tips", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/html/Tips.html"));
-})
-app.get("/Carbon-Calculator", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/html/Carbon-Calculator.html"));
-})
-app.get("/Service", (req, res) => {
-    res.sendFile(path.join(__dirname, "/public/html/Service.html"));
-})
+
 app.get('/', (req, res) => {
   res.redirect('/Home');
 });
