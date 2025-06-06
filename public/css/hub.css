@@ -19,7 +19,12 @@ nav {
 ul {
   height: 3.5em; display: flex; justify-content: center; align-items: center; list-style: none; flex-wrap: wrap; gap: 4vw; margin: 0; padding: 0; overflow: hidden;
 }
-input { width: 36em; height: 25px; }
+input { width: 36em; height: 25px; } 
+body>header>nav>ul>p {
+  font-family: "Rubik Wet Paint", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
 .ico>img { width: 50px;}
 .content>h1 { margin-top: 1em; text-align: center;}
 .text{margin: 0%;padding-top: 4%; background-color: #000000b1;}.text ul li h3 {font-size: 20px; color: rgb(252, 183, 182);}.text ul {display: grid; grid-template-columns: repeat(4, 1fr); justify-items: center; height: auto; gap: 10px 66px;}
