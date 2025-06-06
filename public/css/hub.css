@@ -179,8 +179,9 @@ li:first-child { margin-left: 0;}
 .button-33 {
     background-color: transparent;
     border: none;
-    color: #000000;
+    color: #060909;
     text-decoration: none;
+    font-family:'Playball';
     font-size: 15px;
     position: relative;
     padding: 8px 12px;
@@ -201,6 +202,7 @@ li:first-child { margin-left: 0;}
     font-family: "Playball", cursive;
     font-weight: 400;
     font-style: normal;
+    font-size : larger;
     text-decoration: none;
   }
   /* log in */
