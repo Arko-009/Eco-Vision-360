@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cookie&family=Norican&family=Oleo+Script:wght@400;700&family=Orbitron:wght@400..900&family=Playball&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cookie&family=Orbitron:wght@400..900&family=Playball&display=swap');
 
 * {
   margin: 0;
@@ -198,6 +198,9 @@ li:first-child { margin-left: 0;}
     width: 100%;
   }.button-33 a {
     color: black;
+    font-family: "Playball", cursive;
+    font-weight: 400;
+    font-style: normal;
     text-decoration: none;
   }
   /* log in */
