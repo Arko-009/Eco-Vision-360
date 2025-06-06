@@ -25,7 +25,7 @@ input { width: 36em; height: 25px; }
 body>header>nav>ul>p {
   font-family: "Orbitron", sans-serif;
   font-optical-sizing: auto;
-  font-weight: <weight>;
+  font-weight: 700;
   font-style: normal;
 }
 .eco-vision{margin-bottom:0;}
