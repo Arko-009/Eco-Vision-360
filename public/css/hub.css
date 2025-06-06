@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playwrite+PL+Guides&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playball&display=swap');
 
 * {
   margin: 0;
@@ -23,7 +23,7 @@ ul {
 }
 input { width: 36em; height: 25px; } 
 body>header>nav>ul>p {
-  font-family: "Playwrite PL Guides", cursive;
+  font-family: "Playball", cursive;
   font-weight: 400;
   font-style: normal;
 }
