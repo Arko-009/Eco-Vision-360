@@ -27,7 +27,7 @@ body>header>nav>ul>p {
   font-weight: 400;
   font-style: normal;
 }
-.eco-vision{}
+.eco-vision{margin-bottom:0;}
 .ico>img { width: 50px;}
 .content>h1 { margin-top: 1em; text-align: center;}
 .text{margin: 0%;padding-top: 4%; background-color: #000000b1;}.text ul li h3 {font-size: 20px; color: rgb(252, 183, 182);}.text ul {display: grid; grid-template-columns: repeat(4, 1fr); justify-items: center; height: auto; gap: 10px 66px;}
