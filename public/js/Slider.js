@@ -23,7 +23,7 @@ function reloadSlider() {
     dots[active].classList.add('active');
 
     clearInterval(refreshInterval);
-    refreshInterval = setInterval(() => { next.click() }, 3000);
+    refreshInterval = setInterval(() => { next.click() }, 6000);
 }
 
 dots.forEach((li, key) => {
