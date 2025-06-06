@@ -16,7 +16,7 @@ header {
 nav {
   display: flex;
   gap: 17vw;
-  background-color: #f8df7b; color: #16171a; border: 2px solid rgb(107, 240, 93); height: 3.5em;
+  background-color: #f8df7b; color: #16171a; border: 2px solid rgb(107, 240, 93); height: 3.8em;
 }
 ul {
   height: 3.5em; display: flex; justify-content: center; align-items: center; list-style: none; flex-wrap: wrap; gap: 4vw; margin: 0; padding: 0; overflow: hidden;
