@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cookie&family=Orbitron:wght@400..900&family=Playball&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
 
 * {
   margin: 0;
@@ -19,7 +19,7 @@ nav {
   background-color: #f8df7b; color: #16171a; border: 2px solid rgb(107, 240, 93); height: 3.8em;
 }
 ul {
-  height: 3.5em; display: flex; justify-content: center; align-items: center; list-style: none; flex-wrap: wrap; gap: 4vw; margin: 0; padding: 0; overflow: hidden;
+  height: 3.5em; display: flex; justify-content: center; align-items: center; list-style: none; flex-wrap: wrap; gap: 2vw; margin: 0; padding: 0; overflow: hidden;
 }
 input { width: 36em; height: 25px; } 
 body>header>nav>ul>p {
@@ -181,7 +181,7 @@ li:first-child { margin-left: 0;}
     border: none;
     color: #060909;
     text-decoration: none;
-    font-family:'Playball';
+    font-family:'Orbitron';
     font-size: 15px;
     position: relative;
     padding: 8px 12px;
@@ -199,10 +199,10 @@ li:first-child { margin-left: 0;}
     width: 100%;
   }.button-33 a {
     color: black;
-    font-family: "Playball", cursive;
+    font-family: "Orbitron", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size : larger;
+    font-size : 15px;
     text-decoration: none;
   }
   /* log in */
@@ -213,8 +213,9 @@ li:first-child { margin-left: 0;}
     color: #010613;
     background:#1cbe70;;
     padding: 14px 18px;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 15px;
+    font-family: 'Orbitron';
+    font-weight: bold;
     border-radius: 42px;
     cursor: pointer;
     transition: background 0.3s ease;
