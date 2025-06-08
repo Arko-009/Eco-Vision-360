@@ -157,6 +157,9 @@ app.delete("/listings/:id", async(req, res)=>{
 app.get("/paymentMethods", (req, res)=>{
     res.render("static/paymentMethods.ejs")
  })
+app.get('/payment', (req, res) => {
+    res.render('cltest', { name: 'user' });
+})
 
  app.get("/organicClothing", (req, res)=>{
     res.render("static/organicClothing.ejs")
