@@ -31,7 +31,7 @@ body>header>nav>ul>p {
 .eco-vision{margin-bottom:0;}
 .ico>img { width: 50px;}
 .content>h1 { margin-top: 1em; text-align: center;}
-.text{margin: 0%;padding-top: 4%; background-color: #000000b1;}.text ul li h3 {font-size: 20px; color: rgb(252, 183, 182);}.text ul {display: grid; grid-template-columns: repeat(4, 1fr); justify-items: center; height: auto; gap: 10px 66px;}
+.text{margin: 0%;padding-top: 4%;}.text ul li h3 {font-size: 20px; color: rgb(44, 166, 152);}.text ul {display: grid; grid-template-columns: repeat(4, 1fr); justify-items: center; height: auto; gap: 10px 66px;}
 .text>ul>li:nth-child(5),li:nth-child(6),li:nth-child(7)
 {
   display: flex; flex-direction: column; gap: 20px; font-size: large; color: rgb(255, 255, 255);
