@@ -158,7 +158,7 @@ app.get("/paymentMethods", (req, res)=>{
     res.render("static/paymentMethods.ejs")
  })
 app.get('/payment', (req, res) => {
-    res.render('cltest', { name: 'user' });
+    res.render("listings/cltest.ejs", { name: 'user' });
 })
 
  app.get("/organicClothing", (req, res)=>{
