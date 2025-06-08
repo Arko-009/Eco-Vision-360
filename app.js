@@ -154,7 +154,7 @@ app.delete("/listings/:id", async(req, res)=>{
     res.render("static/returnPolicy.ejs")
  })
 
-app.get("/paymentMethods", (req, res)=>{
+app.get("/PaymentMethods", (req, res)=>{
     res.render("static/paymentMethods.ejs")
  })
 app.get('/payment', (req, res) => {
